@@ -11,18 +11,27 @@ public class App {
 
     public static int[] sort(int[] tab) {
 
+        int counter = 0;
+        boolean flaga = false;
 
         for (int j = 0; j < tab.length; j++) {
-            for (int i = 0; i < tab.length - 1; i++) {
+            for (int i = 0; i < tab.length - j - 1; i++) {
                 if (tab[i] > tab[i + 1]) {
                     int tmp = tab[i + 1];
                     tab[i + 1] = tab[i];
                     tab[i] = tmp;
+                    flaga = true;
                 }
+                counter++;
+            }
+
+            if (!flaga) {
+                break;
             }
         }
 
         System.out.println(Arrays.toString(tab));
+        System.out.println(counter);
         return tab;
 
     }
